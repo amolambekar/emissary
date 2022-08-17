@@ -43,6 +43,7 @@ items:
           release of 1.23. This provides $productName$ with the latest security patches, performances enhancments,
           and features offered by the envoy proxy.
         docs: https://www.envoyproxy.io/docs/envoy/latest/version_history/v1.23/v1.23.0
+      
       - title: Add support for Host resources using secrets from different namespaces
         type: feature
         body: >-
@@ -55,6 +56,7 @@ items:
           Set `AMBASSADOR_EDS_BYPASS` to `true` to bypass EDS handling of endpoints and have endpoints be
           inserted to clusters manually. This can help resolve with `503 UH` caused by certification rotation relating to
           a delay between EDS + CDS. The default is `false`.
+        
       - title: Correctly manage cluster names when service names are very long
         type: bugfix
         body: >-
@@ -63,6 +65,7 @@ items:
         github:
         - title: "#4354"
           link: https://github.com/emissary-ingress/emissary/issues/4354
+      
       - title: Add failure_mode_deny option to the RateLimitService
         type: feature
         body: >-
@@ -74,6 +77,17 @@ items:
           deny traffic when it is unable to communicate to the RateLimitService 
           returning a 500.
         docs: https://www.getambassador.io/docs/emissary/latest/topics/running/services/rate-limit-service/
+      
+      - title: Allow setting custom_tags for traces
+        type: feature
+        body: >-
+          It is now possible to set <code>custom_tags</code> in the
+          <code>TracingService</code>. Trace tags can be set based on
+          literal values, environment variables, or request headers.
+          (Thanks to <a href="https://github.com/psalaberria002">Paul</a>!)
+        github:
+        - title: "#4181"
+          link: https://github.com/emissary-ingress/emissary/pull/4181
 
   - version: 3.1.1
     prevVersion: 3.1.0

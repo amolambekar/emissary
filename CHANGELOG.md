@@ -98,7 +98,12 @@ it will be removed; but as it won't be user-visible this isn't considered a brea
   option. Set `failure_mode_deny: true`, then Envoy will  deny traffic when it is unable to
   communicate to the RateLimitService  returning a 500.
 
+- Feature: It is now possible to set `custom_tags` in the `TracingService`. Trace tags can be set
+  based on literal values, environment variables, or request headers. (Thanks to <a
+  href="https://github.com/psalaberria002">Paul</a>!) ([#4181])
+
 [#4354]: https://github.com/emissary-ingress/emissary/issues/4354
+[#4181]: https://github.com/emissary-ingress/emissary/pull/4181
 
 ## [3.1.1] TBD
 [3.1.1]: https://github.com/emissary-ingress/emissary/compare/v3.1.0...v3.1.1
