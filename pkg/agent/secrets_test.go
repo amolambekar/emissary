@@ -4,13 +4,14 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"strings"
+	"testing"
+
 	"github.com/stretchr/testify/assert"
 	apiv1 "k8s.io/api/core/v1"
 	errorsv1 "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/types"
-	"strings"
-	"testing"
 )
 
 func TestRunWithClientFactorySet(t *testing.T) {

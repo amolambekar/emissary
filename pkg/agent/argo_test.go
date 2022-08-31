@@ -5,12 +5,13 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/emissary-ingress/emissary/v3/pkg/agent"
-	"github.com/emissary-ingress/emissary/v3/pkg/kates"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/apimachinery/pkg/types"
+
+	"github.com/emissary-ingress/emissary/v3/pkg/agent"
+	"github.com/emissary-ingress/emissary/v3/pkg/kates"
 )
 
 func newGenericCallback(apiVersion, kind, name string, eventType agent.CallbackEventType) *agent.GenericCallback {

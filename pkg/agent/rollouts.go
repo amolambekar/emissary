@@ -3,11 +3,13 @@ package agent
 import (
 	"context"
 	"fmt"
+
 	argov1alpha1 "github.com/argoproj/argo-rollouts/pkg/client/clientset/versioned/typed/rollouts/v1alpha1"
-	"github.com/datawire/dlib/dlog"
 	k8serrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/types"
+
+	"github.com/datawire/dlib/dlog"
 )
 
 // rolloutAction indicates the action to be performed on a Rollout object

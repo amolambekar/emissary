@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"sigs.k8s.io/yaml"
 
-	"github.com/emissary-ingress/emissary/v3/pkg/api/getambassador.io/v2"
+	v2 "github.com/emissary-ingress/emissary/v3/pkg/api/getambassador.io/v2"
 	"github.com/emissary-ingress/emissary/v3/pkg/api/getambassador.io/v3alpha1"
 )
 

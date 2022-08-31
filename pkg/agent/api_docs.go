@@ -5,8 +5,6 @@ import (
 	"crypto/tls"
 	"encoding/json"
 	"fmt"
-	"github.com/getkin/kin-openapi/openapi2"
-	"github.com/getkin/kin-openapi/openapi2conv"
 	"io/ioutil"
 	"net"
 	"net/http"
@@ -16,12 +14,16 @@ import (
 	"sync"
 	"time"
 
+	"github.com/getkin/kin-openapi/openapi2"
+	"github.com/getkin/kin-openapi/openapi2conv"
+
+	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/pkg/errors"
+
 	"github.com/datawire/dlib/dlog"
 	amb "github.com/emissary-ingress/emissary/v3/pkg/api/getambassador.io/v3alpha1"
 	"github.com/emissary-ingress/emissary/v3/pkg/kates"
 	snapshotTypes "github.com/emissary-ingress/emissary/v3/pkg/snapshot/v1"
-	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/pkg/errors"
 )
 
 // APIDocsStore is responsible for collecting the API docs from Mapping resources in a k8s cluster.

@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/emissary-ingress/emissary/v3/pkg/kates"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/apimachinery/pkg/types"
+
+	"github.com/emissary-ingress/emissary/v3/pkg/kates"
 )
 
 // RolloutStore is responsible for collecting the state transition and the
