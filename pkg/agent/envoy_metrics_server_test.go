@@ -14,7 +14,7 @@ import (
 	"github.com/datawire/dlib/dgroup"
 	"github.com/datawire/dlib/dlog"
 	"github.com/emissary-ingress/emissary/v3/pkg/agent"
-	envoyMetrics "github.com/emissary-ingress/emissary/v3/pkg/api/envoy/service/metrics/v3"
+	apiv3_svc_metrics "github.com/emissary-ingress/emissary/v3/pkg/api/envoy/service/metrics/v3"
 )
 
 // TestMetricsContext checks that the parent Context correctly gets passed through to the metrics
@@ -39,7 +39,7 @@ func TestMetricsContext(t *testing.T) {
 	grp.Go("server", func(ctx context.Context) error {
 		type testCtxKey struct{}
 		ctx = context.WithValue(ctx, testCtxKey{}, "sentinel")
-		srv := agent.NewMetricsServer(func(ctx context.Context, _ *envoyMetrics.StreamMetricsMessage) {
+		srv := agent.NewMetricsServer(func(ctx context.Context, _ *apiv3_svc_metrics.StreamMetricsMessage) {
 			if val, _ := ctx.Value(testCtxKey{}).(string); val != "sentinel" {
 				t.Error("context did not get passed through")
 			} else {
@@ -54,12 +54,12 @@ func TestMetricsContext(t *testing.T) {
 		if err != nil {
 			return fmt.Errorf("grpc.DialContext: %w", err)
 		}
-		metricsClient := envoyMetrics.NewMetricsServiceClient(grpcClient)
+		metricsClient := apiv3_svc_metrics.NewMetricsServiceClient(grpcClient)
 		stream, err := metricsClient.StreamMetrics(ctx)
 		if err != nil {
 			return fmt.Errorf("metricsClient.StreamMetrics: %w", err)
 		}
-		if err := stream.Send(&envoyMetrics.StreamMetricsMessage{}); err != nil {
+		if err := stream.Send(&apiv3_svc_metrics.StreamMetricsMessage{}); err != nil {
 			return fmt.Errorf("stream.Send: %w", err)
 		}
 		if _, err := stream.CloseAndRecv(); err != nil && !errors.Is(err, io.EOF) {

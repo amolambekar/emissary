@@ -11,7 +11,7 @@ import (
 
 	"github.com/datawire/dlib/dlog"
 	"github.com/emissary-ingress/emissary/v3/pkg/api/agent"
-	envoyMetrics "github.com/emissary-ingress/emissary/v3/pkg/api/envoy/service/metrics/v3"
+	apiv3_svc_metrics "github.com/emissary-ingress/emissary/v3/pkg/api/envoy/service/metrics/v3"
 )
 
 var (
@@ -69,7 +69,7 @@ func TestMetricsRelayHandler(t *testing.T) {
 		stubbedAgent.aggregatedMetrics["192.168.0.1"] = []*io_prometheus_client.MetricFamily{acceptedMetric}
 
 		//when
-		stubbedAgent.MetricsRelayHandler(ctx, &envoyMetrics.StreamMetricsMessage{
+		stubbedAgent.MetricsRelayHandler(ctx, &apiv3_svc_metrics.StreamMetricsMessage{
 			Identifier: nil,
 			// ignored since time to report.
 			EnvoyMetrics: []*io_prometheus_client.MetricFamily{ignoredMetric, acceptedMetric},
@@ -91,7 +91,7 @@ func TestMetricsRelayHandler(t *testing.T) {
 		stubbedAgent.metricsBackoffUntil = time.Now().Add(defaultMinReportPeriod)
 
 		//when
-		stubbedAgent.MetricsRelayHandler(ctx, &envoyMetrics.StreamMetricsMessage{
+		stubbedAgent.MetricsRelayHandler(ctx, &apiv3_svc_metrics.StreamMetricsMessage{
 			Identifier:   nil,
 			EnvoyMetrics: []*io_prometheus_client.MetricFamily{acceptedMetric},
 		})
@@ -108,7 +108,7 @@ func TestMetricsRelayHandler(t *testing.T) {
 		ctx := dlog.NewTestContext(t, true)
 
 		//when
-		stubbedAgent.MetricsRelayHandler(ctx, &envoyMetrics.StreamMetricsMessage{
+		stubbedAgent.MetricsRelayHandler(ctx, &apiv3_svc_metrics.StreamMetricsMessage{
 			Identifier:   nil,
 			EnvoyMetrics: []*io_prometheus_client.MetricFamily{acceptedMetric},
 		})
@@ -127,7 +127,7 @@ func TestMetricsRelayHandler(t *testing.T) {
 		})
 
 		//when
-		stubbedAgent.MetricsRelayHandler(ctx, &envoyMetrics.StreamMetricsMessage{
+		stubbedAgent.MetricsRelayHandler(ctx, &apiv3_svc_metrics.StreamMetricsMessage{
 			Identifier:   nil,
 			EnvoyMetrics: []*io_prometheus_client.MetricFamily{},
 		})

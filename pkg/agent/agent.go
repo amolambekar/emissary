@@ -20,7 +20,7 @@ import (
 
 	"github.com/datawire/dlib/dlog"
 	"github.com/emissary-ingress/emissary/v3/pkg/api/agent"
-	envoyMetrics "github.com/emissary-ingress/emissary/v3/pkg/api/envoy/service/metrics/v3"
+	apiv3_svc_metrics "github.com/emissary-ingress/emissary/v3/pkg/api/envoy/service/metrics/v3"
 	diagnosticsTypes "github.com/emissary-ingress/emissary/v3/pkg/diagnostics/v1"
 	"github.com/emissary-ingress/emissary/v3/pkg/kates"
 	snapshotTypes "github.com/emissary-ingress/emissary/v3/pkg/snapshot/v1"
@@ -820,7 +820,7 @@ var allowedMetricsSuffixes = []string{"upstream_rq_total", "upstream_rq_time", "
 // MetricsRelayHandler is invoked as a callback when the agent receive metrics from Envoy (sink).
 func (a *Agent) MetricsRelayHandler(
 	ctx context.Context,
-	in *envoyMetrics.StreamMetricsMessage,
+	in *apiv3_svc_metrics.StreamMetricsMessage,
 ) {
 	metrics := in.GetEnvoyMetrics()
 

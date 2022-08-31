@@ -9,13 +9,13 @@ import (
 
 	"github.com/datawire/dlib/dhttp"
 	"github.com/datawire/dlib/dlog"
-	envoyMetrics "github.com/emissary-ingress/emissary/v3/pkg/api/envoy/service/metrics/v3"
+	apiv3_svc_metrics "github.com/emissary-ingress/emissary/v3/pkg/api/envoy/service/metrics/v3"
 )
 
-type StreamHandler func(ctx context.Context, in *envoyMetrics.StreamMetricsMessage)
+type StreamHandler func(ctx context.Context, in *apiv3_svc_metrics.StreamMetricsMessage)
 
 type metricsServer struct {
-	envoyMetrics.MetricsServiceServer
+	apiv3_svc_metrics.MetricsServiceServer
 	handler StreamHandler
 }
 
@@ -30,7 +30,7 @@ func NewMetricsServer(handler StreamHandler) *metricsServer {
 // It is a blocking call until sc.ListenAndServe returns.
 func (s *metricsServer) Serve(ctx context.Context, listener net.Listener) error {
 	grpcServer := grpc.NewServer()
-	envoyMetrics.RegisterMetricsServiceServer(grpcServer, s)
+	apiv3_svc_metrics.RegisterMetricsServiceServer(grpcServer, s)
 
 	sc := &dhttp.ServerConfig{
 		Handler: grpcServer,
@@ -41,7 +41,7 @@ func (s *metricsServer) Serve(ctx context.Context, listener net.Listener) error 
 
 // StreamMetrics implements the StreamMetrics rpc call by calling the stream handler on each
 // message received. It's invoked whenever metrics arrive from Envoy.
-func (s *metricsServer) StreamMetrics(stream envoyMetrics.MetricsService_StreamMetricsServer) error {
+func (s *metricsServer) StreamMetrics(stream apiv3_svc_metrics.MetricsService_StreamMetricsServer) error {
 	ctx := stream.Context()
 	dlog.Debug(ctx, "started stream")
 	for {
