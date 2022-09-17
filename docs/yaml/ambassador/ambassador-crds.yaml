@@ -19,6 +19,10 @@ spec:
   - name: v1
     served: true
     storage: false
+    schema:
+        openAPIV3Schema:
+          type: object
+    
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -78,6 +82,9 @@ spec:
   - name: v2
     served: true
     storage: true
+    schema:
+        openAPIV3Schema:
+          type: object
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -100,6 +107,9 @@ spec:
   - name: v1
     served: true
     storage: false
+    schema:
+        openAPIV3Schema:
+          type: object
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -122,6 +132,9 @@ spec:
   - name: v1
     served: true
     storage: false
+    schema:
+        openAPIV3Schema:
+          type: object
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -144,6 +157,9 @@ spec:
   - name: v1
     served: true
     storage: false
+    schema:
+        openAPIV3Schema:
+          type: object
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -181,6 +197,9 @@ spec:
   - name: v1
     served: true
     storage: false
+    schema:
+        openAPIV3Schema:
+          type: object
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -203,6 +222,9 @@ spec:
   - name: v1
     served: true
     storage: false
+    schema:
+        openAPIV3Schema:
+          type: object
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -225,6 +247,9 @@ spec:
   - name: v1
     served: true
     storage: false
+    schema:
+        openAPIV3Schema:
+          type: object
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -247,6 +272,9 @@ spec:
   - name: v1
     served: true
     storage: false
+    schema:
+        openAPIV3Schema:
+          type: object
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -269,6 +297,9 @@ spec:
   - name: v1
     served: true
     storage: false
+    schema:
+        openAPIV3Schema:
+          type: object
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -291,3 +322,6 @@ spec:
   - name: v1
     served: true
     storage: false
+    schema:
+        openAPIV3Schema:
+          type: object
