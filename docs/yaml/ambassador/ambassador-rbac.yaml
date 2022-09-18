@@ -97,6 +97,7 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
         image: datawire/ambassador:$version$
+        imagePullPolicy: Always
         livenessProbe:
           httpGet:
             path: /ambassador/v0/check_alive
