@@ -5,10 +5,10 @@ metadata:
  name: ambassador
 spec:
   type: LoadBalancer
-  externalTrafficPolicy: Local
+  externalTrafficPolicy: Cluster
   ports:
    - port: 80
-     targetPort: 8080
+     targetPort: https
   selector:
     service: ambassador
 
