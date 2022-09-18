@@ -112,7 +112,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: status.hostIP
-        image: docker.io/datawire/ambassador:$version$
+        image: docker.io/datawire/ambassador:1.0.0
         livenessProbe:
           httpGet:
             path: /ambassador/v0/check_alive
