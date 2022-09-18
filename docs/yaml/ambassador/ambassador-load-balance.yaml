@@ -7,7 +7,7 @@ spec:
   type: LoadBalancer
   externalTrafficPolicy: Cluster
   ports:
-   - port: 80
+   - port: 443
      targetPort: https
   selector:
     service: ambassador
