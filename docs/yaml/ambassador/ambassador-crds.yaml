@@ -537,7 +537,7 @@ spec:
       type: object
   version: null
   versions:
-  - name: v2
+  - name: v3alpha1
     served: true
     storage: true
     schema:
