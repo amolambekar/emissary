@@ -1,5 +1,5 @@
 ---
-apiVersion: getambassador.io/v3alpha1
+apiVersion: getambassador.io/v1.14
 kind: Host
 metadata:
   name: ambassador-host
