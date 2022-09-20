@@ -309,15 +309,6 @@ metadata:
     app.kubernetes.io/part-of: emissary-apiext
   name: hosts.getambassador.io
 spec:
-  conversion:
-    strategy: Webhook
-    webhook:
-      clientConfig:
-        service:
-          name: emissary-apiext
-          namespace: emissary-system
-      conversionReviewVersions:
-      - v1beta1
   group: getambassador.io
   names:
     categories:
