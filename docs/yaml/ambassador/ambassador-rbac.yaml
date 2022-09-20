@@ -404,7 +404,7 @@ spec:
       serviceAccountName: ambassador-agent
       containers:
       - name: agent
-        image: docker.io/datawire/ambassador:1.12
+        image: docker.io/datawire/ambassador:1.12.2
         imagePullPolicy: IfNotPresent
         command: [agent]
         env:
