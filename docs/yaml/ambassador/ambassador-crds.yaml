@@ -541,9 +541,6 @@ spec:
     served: true
     storage: true
     schema:
-        openAPIV3Schema:
-          type: object
-    schema:
       openAPIV3Schema:
         description: Host is the Schema for the hosts API
         properties:
