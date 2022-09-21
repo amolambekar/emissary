@@ -537,10 +537,12 @@ spec:
       type: object
   version: null
   versions:
+  - name: v3alpha1
+    served: true
+    storage: true
     schema:
         openAPIV3Schema:
           type: object
-  - name: v3alpha1
     schema:
       openAPIV3Schema:
         description: Host is the Schema for the hosts API
